@@ -330,7 +330,7 @@ class JsonEventSubscriber implements EventSubscriberInterface
     {
         return array(
             'type' => $classMetadata->getResource()->getType(),
-            'id' => $id,
+            'id' => is_object($id) ? (string) $id : $id,
         );
     }
 
