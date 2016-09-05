@@ -166,6 +166,11 @@ class JsonApiSerializationVisitor extends JsonSerializationVisitor
      */
     protected function validateJsonApiDocument($data)
     {
+        /** @var Pagerfanta $data */
+        if ($this->isPaginator($data) && 0 === $data->count()) {
+            return true;
+        }
+
         if (is_object($data) && !$this->isPaginator($data) && !$this->isResource($data)) {
             return false;
         }
