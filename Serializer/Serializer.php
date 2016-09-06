@@ -10,6 +10,7 @@
 
 namespace Mango\Bundle\JsonApiBundle\Serializer;
 
+use FOS\RestBundle\Serializer\Serializer as FOSSerialize;
 use JMS\Serializer\Exclusion\ExclusionStrategyInterface;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer as BaseSerializer;
@@ -18,7 +19,7 @@ use Pagerfanta\Pagerfanta;
 /**
  * @author Steffen Brem <steffenbrem@gmail.com>
  */
-class Serializer extends BaseSerializer
+class Serializer extends BaseSerializer implements FOSSerialize
 {
     /**
      * @var ExclusionStrategyInterface[]
